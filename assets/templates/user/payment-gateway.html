@@ -1,0 +1,761 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Deerhost Template">
+    <meta name="keywords" content="Deerhost, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MCDM</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800,900&display=swap"
+        rel="stylesheet">
+
+    <!-- Css Styles -->
+        <link rel="stylesheet" href="{% static 'user/css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'user/css/font-awesome.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'user/css/elegant-icons.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'user/css/flaticon.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'user/css/owl.carousel.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'user/css/slicknav.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'user/css/style.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'user/css/d.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'user/css/d.css' %}" type="text/css">
+
+
+    <script src="{% static 'user/js/payment_reg.js' %}"></script>
+
+</head>
+
+<body runat="server" data-spy="scroll"  data-target=".site-navbar-target" data-offset="300">
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Offcanvas Menu Begin -->
+    <div class="offcanvas__menu__overlay"></div>
+    <div class="offcanvas__menu__wrapper">
+        <div class="canvas__close">
+            <span class="fa fa-times-circle-o"></span>
+        </div>
+        <div class="offcanvas__logo">
+            <!-- <a href="#"><img src="img/logo.png' %}" alt=""></a> -->
+        </div>
+        <nav class="offcanvas__menu mobile-menu">
+            <ul>
+                <li ><a href="{% url 'user_dashboard' %}">Home</a></li>
+                <li class="active"><a href="{% url 'user_profile' %}">My Profile</a></li>
+                <li><a href="{% url 'user_plans' %}">Plans</a></li>
+                <li><a href="{% url 'user_activated_plans' %}">PurchasedPlans</a></li>
+
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+            </ul>
+        </nav>
+        <div id="mobile-menu-wrap"></div>
+        <div class="offcanvas__auth">
+          
+        </div>
+        <div class="offcanvas__info">
+            <ul>
+                <li><span class="icon_phone"></span>+91 8555 8879 86</li>
+                <li><span class="fa fa-envelope"></span>info@codebook.com</li>
+            </ul>
+        </div>
+    </div>
+    <!-- Offcanvas Menu End -->
+
+    <!-- Header Section Begin -->
+    <header class="header-section header-normal">
+        <div class="header__info">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="header__info-left">
+                            <ul>
+                                <li><span class="icon_phone"></span>+91 8555 8879 86</li>
+                                <li><span class="fa fa-envelope"></span> info@codebook.com</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="header__info-right">
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-3">
+                    <div class="header__logo">
+                        <a href="{% url 'user_dashboard' %}"><i class="fa fa-database fa-2x" style="color:blue ;"><span style="color: white">&nbsp;MCDM</span></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-9 col-md-9">
+                    <nav class="header__menu">
+                        <ul>
+                            <li ><a href="{% url 'user_dashboard' %}">Home</a></li>
+                            <li class="active"><a href="{% url 'user_profile' %}">My Profile</a></li>
+                            <li><a href="{% url 'user_plans' %}">Plans</a></li>
+                            <li><a href="{% url 'user_activated_plans' %}">PurchasedPlans</a></li>
+                            
+                            <li><a href="{% url 'user_downloads' %}">Downloads</a></li>
+                            <li><a href="{% url 'logout' %}">Logout</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <div class="canvas__open">
+                <span class="fa fa-bars"></span>
+            </div>
+        </div>
+    </header>
+    <!-- Header End -->
+
+    <!-- Breadcrumb Begin -->
+    <div class="breadcrumb-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb__option">
+                        <a href="{% url 'user_dashboard' %}"><span class="fa fa-home"></span> Home</a>
+                        <span> Payment Gateway</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Breadcrumb End -->
+
+    <!-- Contact Section Begin -->
+  
+    <div class="section">
+    <div class="container">
+
+        <form method="POST" enctype="multipart/form-data"   onsubmit="return validation()" name='myform'>
+          {% csrf_token %}
+				<!-- row -->
+				<div class="row">
+
+					<div class="col-md-7">
+						<!-- Billing Details -->
+                        <div class="">
+							<div class="section-title">
+								<h3 class="title">Billing address</h3>
+							</div>
+					
+                    
+                            <div >
+                                <div style="margin-top:130px ;border:solid rgb(204, 200, 200) 1px;padding:30px;border-radius:2px" >
+                                   
+                                    <div class="row mt-3" >
+                                        
+                                        <div class="col-md-12"><label>Name</label><input type="text" class="form-control" name='user_name'placeholder="Enter Your name" ></div>
+                                    </div>
+                                    <div class="row mt-3">
+                                        <div class="col-md-12"><label>Email</label><input type="email" class="form-control"name='user_email' placeholder="Enter your email" ></div>
+                                    </div>
+                                    <div class="row mt-3">
+                                    <div class="col-md-12"><label>Mobile no</label><input type="text" class="form-control" name='user_mobile'placeholder="Enter Your Mobile no" ></div>
+                                </div>
+ 
+                                    <div class="row mt-3">
+                                        <div class="col-md-12"><label>Country</label><input type="text" class="form-control" name='user_country' placeholder="Enter Your Country"></div>
+                                </div>
+                                    
+                                    <div class="row mt-3">
+                                 
+                                    <div class="col-md-12"><label>Address</label><textarea type="text" class="form-control" name='user_address' placeholder="Enter Your name" ></textarea></div>
+                                      
+                                   
+                                    
+                                  
+                                  
+                                </div>
+                            </div>
+                        </div>
+						<!-- /Billing Details -->
+
+						<!-- Shiping Details -->
+						
+						<!-- /Shiping Details -->
+
+						<!-- Order notes -->
+					
+                        </div>
+                    <!-- /Order notes -->
+			  </div>
+           <br>
+           
+					<!-- Order Details -->
+					<div class="col-md-5 ">
+						<div class="section-title ">
+							<h3 class="title">Payment Gateway</h3>
+                            <br>
+                                
+                                <!-- <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active  " id="home-tab" data-toggle="" href="" role="tab" aria-controls="Debit Card" aria-selected="true">Debit Card</a>
+                                      </li>
+                                      <li class="nav-item ">
+                                        <a class="nav-link  " id="profile-tab" data-toggle="" href="" role="tab" aria-controls="Credit Card" aria-selected="false">Credit Card</a>
+                                      </li>
+                                      <li class="nav-item">
+                                          <a class="nav-link " id="profile-tab" data-toggle="" href="" role="tab" aria-controls="UPI" aria-selected="false">Net Banking</a>
+                                      </li>
+                                       
+                                     
+                                  </ul> -->
+                                
+                                    <div class="tabs">
+                                    <input type="radio" name="tabs" id="tabone" checked="checked">
+                                    <label for="tabone">DebitCard</label>
+                                    <div class="tab">
+                                      <div class="container-fluid">
+                                        <div class="row justify-content-center">
+                                            
+                                            <div class="col-sm-12">
+                                                <div class="card  my-4 p-3  ">
+                                                    <div class="row main">
+                                                    <div class="col-12"><span></span>&nbsp;&nbsp;&nbsp;&nbsp;<span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h3><span>&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbspDebit card <hr></span></h3></div>
+                                                    </div>
+                                                    
+                                                    <div class="row justify-content-center mrow" >
+                                                      
+                                                    <div class="inlineimage"> <img class="img-responsive images" src="https://cdn0.iconfinder.com/data/icons/credit-card-debit-card-payment-PNG/128/Mastercard-Curved.png"> <img  class="img-responsive images" src="{% static 'user/img/visa.png' %}" ><img class="img-responsive images" src="https://cdn0.iconfinder.com/data/icons/credit-card-debit-card-payment-PNG/128/Discover-Curved.png"> <img class="img-responsive images" src="https://cdn0.iconfinder.com/data/icons/credit-card-debit-card-payment-PNG/128/American-Express-Curved.png"> </div>
+                                                </div>
+                                                <div>
+                                                    <form class="form-card" method="post" enctype="multipart/form-data" onsubmit="return validation()" name='myform'>
+                                                      {% csrf_token %}
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="form-group"> <input type="text" name="cardno"  class="form-control p-0" id="debit" required ><h6 class="form-control-placeholder p-0" for="number">CardNumber</h6> </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="form-group"> <input type="text" name="cardholder_name" class="form-control p-0" id="h_name" required ><h6 class="form-control-placeholder p-0" for="name">Cardholder Name</h6> </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-sm-4 col-12">
+                                                                <div class="form-group"> <input type="text" name="start" class="form-control p-0" id="sdate" required ><h6 class="form-control-placeholder p-0" for="sdate">Startmonth</h6> </div>
+                                                            </div>
+                                                            <div class="col-sm-4 col-12">
+                                                                <div class="form-group"> <input type="text" name="expiary" class="form-control p-0" id="expdate" required><h6 class="form-control-placeholder p-0" for="expdate">Expiration</h6> </div>
+                                                            </div>
+                                                            <div class="col-sm-4 col-12">
+                                                                <div class="form-group"> <input type="text"name="cvv"  class="form-control p-0" id="cvv2" required><h6 class="form-control-placeholder p-0" for="passw">CVV</h6> </div>
+                                                            </div>
+                                                        
+
+                                                            
+                                                            <div class="col-sm-4 col-md-12 mt-3">
+                                                                <div class="form-group "> <h5 for="Select Your Bank">
+                                                                    
+                                                                </h5> <select class="form-control" id="select_bank" name="plan" required>
+                                                                    <option value="" selected disabled>--Please select your Plan--</option>
+                                                                    {% for i in data%}
+                                                                    <option value="{{i.cloud_Basic_price}}">Basic Plan {{i.cloud_Basic_price}}$</option>
+                                                                    <option value="{{i.cloud_Business_price}}">Business Plan {{i.cloud_Business_price}}$</option>
+                                                                    <option value="{{i.cloud_Premium_price}}">Premium Plan {{i.cloud_Premium_price}}$</option>
+                                                                   {% endfor %}
+                                                                   
+                                                                    
+                                                                </select>
+                                                                <h6>Select Plans</h6>
+                                                             </div>
+                                                            </div>
+
+                                                        </div>
+                                                       
+                                                        <div class="row mb-2 mt-3">
+                                                            <div class="col-sm-12"> <button type="submit" class="btn btn-primary btn-block">Submit</button> </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                        </div>
+                                     
+                                    </div>
+                                  
+                                     <br>
+                                    
+                                    <input type="radio" name="tabs" id="tabtwo">
+                                    <label for="tabtwo">Creditcard</label>
+                                    <div class="tab">
+                                      
+                                      <div class="container-fluid">
+                                        <div class="row justify-content-center">
+                                            
+                                            <div class="col-sm-12">
+                                                <div class="card  my-4 p-3  ">
+                                                    <div class="row main">
+                                                    <div class="col-12"><span></span>&nbsp;&nbsp;&nbsp;&nbsp;<span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h3><span>&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbspCredit card <hr></span></h3></div>
+                                                    </div>
+                                                    
+                                                    <div class="row justify-content-center mrow" >
+                                                      
+                                                    <div class="inlineimage"> <img class="img-responsive images" src="https://cdn0.iconfinder.com/data/icons/credit-card-debit-card-payment-PNG/128/Mastercard-Curved.png"> <img  class="img-responsive images" src="{% static 'user/img/visa.png' %}" ><img class="img-responsive images" src="https://cdn0.iconfinder.com/data/icons/credit-card-debit-card-payment-PNG/128/Discover-Curved.png"> <img class="img-responsive images" src="https://cdn0.iconfinder.com/data/icons/credit-card-debit-card-payment-PNG/128/American-Express-Curved.png"> </div>
+                                                </div>
+                                                <div>
+                                                    <form class="form-card" method="post" enctype="multipart/form-data" >
+                                                     
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="form-group"> <input type="text" name="cardno" class="form-control p-0"  name="credit" required><h6 class="form-control-placeholder p-0"for="credit">CardNumber</h6> </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="form-group"> <input type="text" name="cardholder_name" class="form-control p-0"  name="h_name2"required ><h6 class="form-control-placeholder p-0" for="name">Cardholder Name</h6> </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-sm-4 col-12">
+                                                                <div class="form-group"> <input type="text" name="start"  class="form-control p-0"  name="sdate2"required><h6 class="form-control-placeholder p-0" for="sdate">StartDate</h6> </div>
+                                                            </div>
+                                                            <div class="col-sm-4 col-12">
+                                                                <div class="form-group"> <input type="text" name="expiary"  class="form-control p-0" name="expdate2" required ><h6 class="form-control-placeholder p-0"  for="expdate">Expiration</h6> </div>
+                                                            </div>
+                                                            <div class="col-sm-4 col-12">
+                                                                <div class="form-group"> <input type="text" name="cvv" class="form-control p-0" id="cvv" required><h6 class="form-control-placeholder p-0" for="passw">CVV</h6> </div>
+                                                            </div>
+                                                            <div class="col-sm-4 col-md-12 mt-3">
+                                                                <div class="form-group "> <h5 for="Select Your Bank">
+                                                                    
+                                                                </h5> <select class="form-control" id="select_bank" name="plan" >
+                                                                    <option value="" selected disabled>--Please select your Plan--</option>
+                                                                    {% for i in data%}
+                                                                    <option value="{{i.cloud_Basic_price}}">Basic Plan {{i.cloud_Basic_price}}$</option>
+                                                                    <option value="{{i.cloud_Business_price}}">Business Plan {{i.cloud_Business_price}}$</option>
+                                                                    <option value="{{i.cloud_Premium_price}}">Premium Plan {{i.cloud_Premium_price}}$</option>
+                                                                   {% endfor %}
+                                                                   
+                                                                    
+                                                                </select>
+                                                                <h6>Select Plans</h6>
+                                                             </div>
+                                                            </div>
+                                                        </div>
+                                                       
+                                                        <div class="row mb-2 mt-3">
+                                                            <div class="col-sm-12"> <button type="submit" class="btn btn-primary btn-block">submit</button> </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                        </div>
+                                    </div>
+                                  
+                                    <br>
+                                    
+                                    <input type="radio" name="tabs" id="tabthree">
+                                    <label for="tabthree">NetBanking</label>
+                                    <div class="tab">
+                                      <div class="container-fluid">
+                                        <div class="row justify-content-center">
+                                            
+                                            <div class="col-sm-12">
+                                                <div class="card  my-4 p-3  ">
+                                                    <div class="row main">
+                                                    <div class="col-12"><span></span>&nbsp;&nbsp;&nbsp;&nbsp;<span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h3><span>&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbspNetbanking <hr></span></h3></div>
+                                                    </div>
+                                                    
+                                                    <div class="row justify-content-center mrow">
+                                                      
+                                                    
+                                                </div>
+                                                    <form class="form-card"  method="POST" enctype="multipart/form-data"   >
+                                                      {% csrf_token %}
+                                                      
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="form-group "> <h5 for="Select Your Bank">
+                                                                    <h6>Select your Bank</h6>
+                                                                </h5> <select class="form-control" id="select_bank" name="selectbank"required >
+                                                                    <option value="" selected disabled>--Please select your Bank--</option>
+                                                                    <option>Union Bank</option>
+                                                                    <option>Sate Bank Of India</option>
+                                                                    <option>Indian Bank</option>
+                                                                    <option>Hdfc Bank</option>
+                                                                    <option>Icic Bank</option>
+                                                                    <option>Kotak Bank</option>
+                                                                    <option>Paytm Bank</option>
+                                                                    
+                                                                </select> </div>
+                                                            </div>
+                                                            
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="form-group "> <h5 >
+                                                                    <h6>Select Plan</h6>
+                                                                </h5> <select class="form-control" name="plan" >
+                                                                    <option selected disabled>--Please select your Plan--</option>
+                                                                    {% for i in data%}
+                                                                    <option value="{{i.cloud_Basic_price}}">Basic Plan {{i.cloud_Basic_price}}$</option>
+                                                                    <option value="{{i.cloud_Business_price}}">Business Plan {{i.cloud_Business_price}}$</option>
+                                                                    <option value="{{i.cloud_Premium_price}}">Premium Plan {{i.cloud_Premium_price}}$</option>
+                                                                   {% endfor %}
+                                                                   
+                                                                    
+                                                                </select> </div>
+                                                            </div>
+                                                        </div>
+                                                     
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="form-group"> <input type="text" name="username" class="form-control p-0" name="u_name" required ><h6 class="form-control-placeholder p-0" for="name">User Name</h6> </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="form-group"> <input type="text" name="password" class="form-control p-0" name="p_password" required><h6 class="form-control-placeholder p-0" for="name">Password</h6> </div>
+                                                            </div>
+                                                        </div>
+                                                    
+                                                        
+                                                       
+                                                        <div class="row mb-2 mt-3">
+                                                            <div class="col-sm-12"> <button type="submit" class="btn btn-primary btn-block">Donate</button> </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                    
+                                    </div>
+                                  
+                                  </div>
+                                  
+                            
+					<!-- /Order Details -->
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</form>
+
+    </div>
+</div>
+    <!-- Contact Section End -->
+
+    <!-- Contact Form Begin -->
+    
+    <!-- Contact Form End -->
+
+    <!-- Footer Section Begin -->
+    <footer class="footer-section mt-5">
+        <div class="footer__top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="footer__top-call">
+                            <h5>Need Help? Call us</h5>
+                            <h2>+91 8555 8879 86</h2>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer__text set-bg" data-setbg="{% static 'user/img/footer-bg.png' %}">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="footer__text-about">
+                            <div class="footer__logo">
+                                <a href="{% url 'user_dashboard' %}"><i class="fa fa-database fa-2x" style="color:blue ;"><span style="color: white">&nbsp;MCDM</span></i></a>
+                            </div>
+                            <p>mcdm is the on-demand availability of computer system resources, especially data storage (cloud storage) and computing power, without direct active management by the user </p>
+                            <div class="footer__social">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-youtube-play"></i></a>
+                                <a href="#"><i class="fa fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-6 col-sm-6">
+                        <div class="footer__text-widget">
+                            <h5>Company</h5>
+                            <ul>
+                            <li ><a href="{% url 'user_dashboard' %}">Home</a></li>
+                            <li><a href="{% url 'user_profile' %}">My Profile</a></li>
+                            <li ><a href="{% url 'user_plans' %}">Plans</a></li>
+                            <li><a href="{% url 'user_activated_plans' %}">PurchasedPlans</a></li>
+                            
+                            <li><a href="{% url 'user_downloads' %}">Downloads</a></li>
+                            <li><a href="{% url 'logout' %}">Logout</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="footer__text-widget">
+                            <h5>cONTACT US</h5>
+                            <ul class="footer__widget-info">
+                                <li><span class="fa fa-map-marker"></span>Metro Pillar No A1662, Siris Road
+                                    Snehapuri<br/>
+                                    L.B Nagar,Hyd-74</li>
+                                <li><span class="fa fa-mobile"></span> +91 8555 8879 86 </li>
+                                <li><span class="fa fa-headphones"></span> Support.info@codebook.in</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer__text-copyright">
+                    <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://codebook.in" target="_blank">CODEBOOK</a>
+  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Section End -->
+
+    <!-- Js Plugins -->
+    <script src="{% static 'user/js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'user/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'user/js/jquery.slicknav.js' %}"></script>
+    <script src="{% static 'user/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'user/js/main.js' %}"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    
+    <script type="text/javascript">
+        function validation(){
+            var name = document.myform.user_name;
+            var email = document.myform.user_email;
+            let plan1= document.myform.selectbank;
+           
+            
+            
+            
+            let phoneNum = document.myform.user_mobile;
+            let start = document.getElementById.sdate;
+            let expiary = document.getElementById.expdate;
+            let cvv = document.getElementById.cvv2;
+            let debit = document.getElementById.debit;
+            let d_name = document.getElementById.h_name;
+        
+  
+            let start2 = document.myform.sdate2
+            let expiary2 = document.myform.expdate2
+            let cvv2 = document.myform.cvv
+            let credit = document.myform.credit
+            let c_name = document.myform.h_name2
+  
+            let s_bank = document.myform.select_bank
+            let p_user = document.myform.u_name
+            let p_password = document.myform.p_password
+            let c_amount = document.myform.ca
+            let d_amount = document.myform.da
+  
+            let feedback_name = document.myform.user_country;
+
+            let address = document.myform.user_address;
+            var confirmpassword =document.myform.confirmpassword
+            var mailformat = /^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$/;
+            var letter = /[a-z]/;
+            var upper = /[A-Z]/;
+            var number = /[0-9]/;
+             
+            if(name.value.length <= 0){
+  
+                alert("Please Enter Your Name:");
+                name.focus();
+                return false;
+              }
+
+
+              if(email.value.length <= 0){
+                alert( 'Please Your Email: ');
+                email.focus();
+                return false;
+              } 
+      
+              if(!email.value.match(mailformat)){
+                alert( 'Please Your Email: ');
+                email.focus();
+                return false;
+              }  
+              if (phoneNum.value.length != 10) {
+  
+                alert("please Enter valid mobile number"); 
+                return false;
+                  
+              }
+          
+              if (phoneNum.value.length <= 0) {
+          
+                alert("Please Enter Mobile Number");
+                return false;
+              }
+              
+            if(feedback_name.value.length <= 0){
+  
+              alert("Please Enter Your Country name:");
+              feedback_name.focus();
+              return false;
+          } 
+
+          if(address.value.length <= 0){
+  
+            alert("Please Enter Your Address:");
+            address.focus();
+            return false;
+          }
+
+          if(plan1.value == '--Please select your Plan--'){
+  
+            alert("Please select  Plan:");
+            plan.focus();
+            return false;
+          }
+          if(debit.value=='' || debit.value.length <=15){
+            alert("  debitcard should be less than 15 digits" );
+            return false;
+            }
+          
+          if(expiary2.value=='' || expiary2.value.length <=2){
+  
+            alert("  expiary should be less than 2 digits" );
+            return false;
+          }
+          if(credit.value=='' || credit.value.length <=15){
+            alert("  credit should be less than 15 digits" );
+            return false;
+          }
+        
+          if(cvv2.value=='' || cvv2.value.length <=4){
+            alert("  cvv should be less than 4 digits" );
+            return false;
+          }
+          if(start.value=='' || start.value.length <=2){
+            alert("  month should be less than 2 digits" );
+            return false;
+          }
+          if(expiary.value=='' || expiary.value.length <=2){
+          alert("  expiary should be less than 2 digits" );
+          return false;
+          }
+         
+        
+          
+        
+        
+  
+        if (mobile_number.value=='' || mobile_number.value.length !=10 ){
+            alert("Mobile number should be 10 digits")
+            mobile_number.focus();
+            return false;
+        }
+           if(address.value==''){
+            alert("address should not be empty")
+            address.focus();
+            return false;
+           }
+            if(logo.value==''){
+             alert("logo should not be empty")
+             logo.focus();
+             return false;
+            }
+            if(license.value==''){
+             alert("license should not be empty")
+             license.focus();
+             return false;
+            }
+  
+            if(s_bank.value.length == "selectbank"){
+  
+              alert("Please select bank:");
+              s_bank.focus();
+              return false;
+            } 
+       
+          if(c_amount.value.length <= 0){
+  
+            alert("Please Enter Your amount:");
+            c_amount.focus();
+            return false;
+          }
+  
+        if(d_amount.value.length <= 0){
+  
+          alert("Please Enter Your amount:");
+          d_amount.focus();
+          return false;
+        }
+  
+  
+  
+            if(d_name.value.length <= 0){
+  
+              alert("Please Enter Your Cardholder Name:");
+              d_name.focus();
+              return false;
+           } 
+  
+            if(c_name.value.length <= 0){
+  
+              alert("Please Enter Your Cardholder Name:");
+              c_name.focus();
+              return false;
+           } 
+  
+  
+            if(p_password.value.length <= 0){
+  
+              alert("Please Enter Your Password:");
+              p_pasword.focus();
+              return false;
+            } 
+  
+  
+          if(p_user.value.length <= 0){
+  
+            alert("Please Enter Your username:");
+            p_user.focus();
+            return false;
+          } 
+           
+  
+            else{
+               return true;
+            }
+        }
+    </script>
+        <script>
+    
+          {% for j in messages %}
+        
+          swal({
+            
+            text: "{{j}}",
+            icon: "success",
+            button: "ok",
+          });
+            
+          {% endfor %}
+        
+        </script>
+</body>
+
+</html>

@@ -1,0 +1,1312 @@
+{% load static %}
+{% load ratings %}
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Deerhost Template">
+    <meta name="keywords" content="Deerhost, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MCDM</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800,900&display=swap"
+        rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" type="text/css" href="css/starability-all.min.css"/>
+        <link rel="stylesheet" href="{% static 'user/css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'user/css/font-awesome.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'user/css/elegant-icons.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'user/css/flaticon.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'user/css/owl.carousel.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'user/css/slicknav.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'user/css/style.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'star-ratings/css/star-ratings.css' %}">
+<script type="text/javascript" src="{% static 'star-ratings/js/dist/star-ratings.min.js' %}"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+</head>
+
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Offcanvas Menu Begin -->
+    <div class="offcanvas__menu__overlay"></div>
+    <div class="offcanvas__menu__wrapper">
+        <div class="canvas__close">
+            <span class="fa fa-times-circle-o"></span>
+        </div>
+        <div class="offcanvas__logo">
+            <!-- <a href="#"><img src="img/logo.png' %}" alt=""></a> -->
+        </div>
+        <nav class="offcanvas__menu mobile-menu">
+           <ul>
+                <li class="active"><a href="user-dashboard.html">Home</a></li>
+                <li><a href="user-profile.html">My Profile</a></li>
+                <li><a href="user-plans.html">Plans</a></li>
+                <li><a href="user-upload.html">Uploads</a></li>
+                <li><a href="user-downloads.html">Downloads</a></li>
+               
+                <li><a href="index.html">Logout</a></li>
+            </ul>
+        </nav>
+        <div id="mobile-menu-wrap"></div>
+        <div class="offcanvas__auth">
+          
+        </div>
+        <div class="offcanvas__info">
+            <ul>
+                <li><span class="icon_phone"></span>+91 8555 8879 86</li>
+                <li><span class="fa fa-envelope"></span>info@codebook.com</li>
+            </ul>
+        </div>
+    </div>
+    <!-- Offcanvas Menu End -->
+
+    <!-- Header Section Begin -->
+    <header class="header-section header-normal">
+        <div class="header__info">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="header__info-left">
+                            <ul>
+                                <li><span class="icon_phone"></span>+91 8555 8879 86</li>
+                                <li><span class="fa fa-envelope"></span> info@codebook.com</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="header__info-right">
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-3">
+                    <div class="header__logo">
+                        <a href="./index.html"><i class="fa fa-database fa-2x" style="color:blue ;"><span style="color: white">&nbsp;MCDM</span></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-9 col-md-9">
+                    <nav class="header__menu">
+                        <ul>
+                            <li ><a href="{% url 'user_dashboard' %}">Home</a></li>
+                            <li><a href="{% url 'user_profile' %}">My Profile</a></li>
+                            <li class="active"><a href="{% url 'user_plans' %}">Plans</a></li>
+                            <li><a href="{% url 'user_activated_plans' %}">PurchasedPlans</a></li>
+                            
+                            <li><a href="{% url 'user_downloads' %}">Downloads</a></li>
+                            <li><a href="{% url 'logout' %}">Logout</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <div class="canvas__open">
+                <span class="fa fa-bars"></span>
+            </div>
+        </div>
+    </header>
+    <!-- Header End -->
+
+    <!-- Breadcrumb Begin -->
+    <div class="breadcrumb-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb__option">
+                        <a href="{% url 'home' %}"><span class="fa fa-home"></span> Home</a>
+                        <span>Contact</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Breadcrumb End -->
+
+    <!-- Contact Section Begin -->
+    <form>
+        {% csrf_token %}
+    <section class="contact-section spad">
+        <div class="container">
+            <div class="row">
+                {% csrf_token %}
+                <div class="col-lg-12">
+                    <div class="section-title">
+                        <h3>CMSIC PLAN PERFECT FOR YOU!</h3>
+                    </div>
+                    <div class="hosting__text">
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab">
+                                    <span class="flaticon-003-network"></span>
+                                    <h5>Clouds</h5>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab">
+                                    <span class="flaticon-030-server-1"></span>
+                                    <h5>Financial</h5>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab">
+                                    <span class="flaticon-010-cloud-storage-2"></span>
+                                    <h5>CSMIC Recommands</h5>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#tabs-4" role="tab">
+                                    <span class="flaticon-008-cloud-computing"></span>
+                                    <h5>BOM</h5>
+                                </a>
+                            </li>
+                            <!-- <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#tabs-5" role="tab">
+                                    <span class="flaticon-009-cloud-storage-1"></span>
+                                    <h5>Reseller</h5>
+                                </a>
+                            </li> -->
+                        </ul>
+                        <div class="tab-content">
+                       
+                            <div class="tab-pane active" id="tabs-1" role="tabpanel">
+                                <div class="hosting__feature__table">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>
+                                                    <div class="hosting__feature__plan--choose">
+                                                        <span>All Shared Hosting Features</span>
+                                                        <div class="chose__title">CHOOSE PERFECT PLAN</div>
+                                                    </div>
+                                                </th>
+                                                {% for i in data %}
+                                                
+                                                <th>
+                                                    <div class="hosting__feature--plan">
+                                                        <div class="plan__title">{{i.cloud_name}}</div>
+                                                        <div class="hosting__feature--price">
+                                                            <div class="plan__price"></div>
+                                                            
+                                                        </div>
+                                                      
+                                                        <a href="payment_gateway/{{i.cloud_id}}" class="primary-btn" id="button-a">Buy now</a>
+
+                                                      
+                                                      
+                                                    </div>
+                                                </th>
+                                                {% endfor %}
+                                              
+                                                <!-- <th>
+                                                    <div class="hosting__feature--plan">
+                                                        <div class="plan__title">Azure</div>
+                                                        <div class="hosting__feature--price">
+                                                            <div class="plan__price"></div>
+                                                            
+                                                        </div>
+                                                        <a href="#" class="primary-btn">Buy now</a>
+                                                    </div>
+                                                </th>
+                                                <th>
+                                                    <div class="hosting__feature--plan">
+                                                        <div class="plan__title">Google</div>
+                                                        <div class="hosting__feature--price">
+                                                            <div class="plan__price"></div>
+                                                            
+                                                        </div>
+                                                        <a href="#" class="primary-btn">Buy now</a>
+                                                    </div>
+                                                </th> -->
+                                            </tr>
+                                            
+                                        </thead>
+                                        <tbody>
+                                            
+                                            <tr>
+                                                <td class="hosting__feature--item">Basic</td>
+                                                {% for i in data %}
+                                                <td class="hosting__feature--info">{{i.cloud_Basic_price}}$</td>
+                                                {% endfor %}
+                                                
+                                             
+                                            </tr>
+                                            <tr>
+                                                <td class="hosting__feature--item">Storage<p>(Monthly)</p></td>
+                                                {% for i in data %}
+                                                <td class="hosting__feature--info">{{i.cloud_Basic_monthly_usage_data}}GB</td>
+                                                {% endfor %}
+                                            </tr>
+                                            <tr>
+                                                <td class="hosting__feature--item">Business</td>
+                                                {% for i in data %}
+                                                <td class="hosting__feature--info">{{i.cloud_Business_price}}$</td>
+                                                {% endfor %}
+                                               
+                                                
+                                                </td>
+                                               
+                                                
+                                            </tr>
+                                            <tr>
+                                                <td class="hosting__feature--item"> Business Storage <p>(Monthly)</p></td>
+                                                {% for i in data %}
+                                                <td class="hosting__feature--info">{{i.cloud_Business_monthly_usage_data}}GB</td>
+                                                {% endfor %}
+                                            </tr>
+                                            <tr>
+                                                <td class="hosting__feature--item">Premium</td>
+                                                {% for i in data %}
+                                                <td class="hosting__feature--info">{{i.cloud_Premium_price}}$</td>
+                                                {% endfor %}
+                                               
+                                            </tr>
+                                          
+                                            <tr>
+                                                <td class="hosting__feature--item"> Premium Storage <p>(Monthly)</p></td>
+                                                {% for i in data %}
+                                                <td class="hosting__feature--info">{{i.cloud_Premium_monthly_usage_data}}GB</td>
+                                                {% endfor %}
+                                                
+                                            </tr>
+                                            <tr>
+                                                <td class="hosting__feature--item"> Agility</td>
+                                                {% for i in data %}
+                                                <td class="hosting__feature--info" >{{i.cloud_agility}}{{ i.user_reviews }}
+                                                    
+                                                </td>
+                                                
+                                                {% endfor %}
+                                                
+                                            </tr>
+                                            <tr>
+                                                <td class="hosting__feature--item">User Reviews</td>
+                                                {% for i in data %}
+                                                <td class="hosting__feature--info">
+                                                    {% if i.user_reviews == '0' %}
+                                                    <i class="fa fa-star-o" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star-o" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star-o" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star-o" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star-o" style="color:gold; font-size:20px"></i>
+                                                    {% elif i.user_reviews == '1' %}
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star-o" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star-o" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star-o" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star-o" style="color:gold; font-size:20px"></i>
+                                                    
+                                                    {% elif i.user_reviews < '1.5' %}
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star-half-o" style="color:gold;font-size:20px"></i>
+                                                    <i class="fa fa-star-o" style="color:gold;font-size:20px"></i>
+                                                    <i class="fa fa-star-o" style="color:gold;font-size:20px"></i>
+                                                    <i class="fa fa-star-o" style="color:gold;font-size:20px"></i>
+                                                    
+                                                    {% elif i.user_reviews == '2.0' %}
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star-o" style="color:gold;font-size:20px"></i>
+                                                    <i class="fa fa-star-o" style="color:gold;font-size:20px"></i>
+                                                    <i class="fa fa-star-o" style="color:gold;font-size:20px"></i>
+                                                    {% elif i.user_reviews == '2.5' %}
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px" ></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star-half-o" style="color:gold;font-size:20px"></i>
+                                                    <i class="fa fa-star-o" style="color:gold;font-size:20px"></i>
+                                                    <i class="fa fa-star-o" style="color:gold;font-size:20px"></i>
+                                                    {% elif i.user_reviews == '3'  %}
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star-o" style="color:gold;font-size:20px"></i>
+                                                    <i class="fa fa-star-o" style="color:gold;font-size:20px"></i>
+                                                    {% elif  i.user_reviews == '3.5'%}
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star-half-o" style="color:gold;font-size:20px"></i>
+                                                    <i class="fa fa-star-o" style="color:gold;font-size:20px"></i>
+                                                   
+                                                    {% elif i.user_reviews == '3.9' %}
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star-half-o" style="color:gold;font-size:20px"></i>
+                                                    <i class="fa fa-star-o" style="color:gold;font-size:20px"></i>
+
+                                                    {% elif i.user_reviews == '4' %}
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star-o" style="color:gold;font-size:20px"></i>
+
+                                                    {% elif i.user_reviews == '4.5' %}
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star-half-o" style="color:gold;font-size:20px"></i>
+                                                    {% elif i.user_reviews <= '4.9'  %}
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    
+                                                    <i class="fa fa-star-half-o" style="color:gold;font-size:20px"></i>
+                                                    
+                                                    {% elif i.user_reviews == '5.0' %}
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                   
+                                                     {% endif %}
+                                                    
+                                                </td>
+                                                   
+                                                    {% endfor %}
+                                                <tr>
+                                                    <td class="hosting__feature--item">System OS</td>
+                                                    {% for i in data %}
+                                                    <td class="hosting__feature--info">{{i.cloud_service_model}}</td>
+                                                    {% endfor %}
+                                                 
+                                                </tr>
+                                                <tr>
+                                                    <td class="hosting__feature--item"> Peformance</td>
+                                                    {% for i in data %}
+                                                    <td class="hosting__feature--info">{{i.cloud_performance}}</td>
+                                                    {% endfor %}
+                                               
+                                                </tr>
+                                               
+                                                <tr>
+                                                    <td class="hosting__feature--item"> Privacy & security</td>
+                                                    {% for i in data %}
+                                                    <td class="hosting__feature--info">{{i.cloud_security_and_privacy}}</td>
+                                                    {% endfor %}
+                                                    
+                                                </tr>
+                                                <tr>
+                                                    <td class="hosting__feature--item">To Purchase</td>
+                                                    {% for i in data %}
+                                                    <td><a href="payment_gateway/{{i.cloud_id}}" class="primary-btn" id="button-a">Buy now</a></td>
+                                                    {% endfor %}
+                                                </tr>
+                                            </tr>
+                                           
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                          
+                        
+                            <div class="tab-pane" id="tabs-2" role="tabpanel">
+                                <div class="hosting__feature__table">
+                                    <table>
+                                        <thead>
+                                           
+                                            <tr>
+                                                <th>
+                                                    <div class="hosting__feature__plan--choose">
+                                                        <span>All Financial Features</span>
+                                                        <div class="chose__title">CHOOSE PERFECT PLAN</div>
+                                                    </div>
+                                                </th>
+                                                <th>
+                                                    <div class="hosting__feature--plan">
+                                                    
+                                                    <div class="plan__title">{{data2.cloud_name}}</div>
+                                                  
+                                                    <div class="hosting__feature--price">
+                                                        <div class="plan__price"></div>
+                                                      
+                                                    </div>
+                                                    <a href="payment_gateway/{{data2.cloud_id}}" class="primary-btn" id="button-a">Buy now</a>
+                                                </div>
+                                               </th>
+                                               
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="hosting__feature--item">Basic</td>
+                                                
+                                                <td ><span class="hosting__feature--info" >{{data2.cloud_Basic_price}}$</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="hosting__feature--item">Storage<p>(Monthly)</p></td>
+                                                
+                                                <td class="hosting__feature--info">{{data2.cloud_Basic_monthly_usage_data}}GB</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="hosting__feature--item">Business</td>
+                                               
+                                                <td ><span class="hosting__feature--info" >{{data2.cloud_Business_price}}$</span>
+                                                </td>
+                                               
+                                                
+                                            </tr>
+                                            <tr>
+                                                <td class="hosting__feature--item"> Business Storage <p>(Monthly)</p></td>
+                                                
+                                                <td class="hosting__feature--info">{{data2.cloud_Business_monthly_usage_data}}GB</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="hosting__feature--item">Premium</td>
+                                               
+                                                <td ><span class="hosting__feature--info" >{{data2.cloud_Premium_price}}$</span>
+                                                </td>
+                                            </tr>
+                                          
+                                            <tr>
+                                                <td class="hosting__feature--item"> Premium Storage <p>(Monthly)</p></td>
+                                                
+                                                <td class="hosting__feature--info">{{data2.cloud_Premium_monthly_usage_data}}GB</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="hosting__feature--item"> Agility</td>
+                                                
+                                                <td class="hosting__feature--info">{{data2.cloud_agility}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="hosting__feature--item">User Reviews</td>
+                                               
+                                                <td class="hosting__feature--info">
+                                                    {% if data2.user_reviews == '0' %}
+                                                    <i class="fa fa-star-o" style="color:gold; font-size:20px"{></i>
+                                                    <i class="fa fa-star-o" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star-o" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star-o" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star-o" style="color:gold; font-size:20px"></i>
+                                                    {% elif data2.user_reviews == '1' %}
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star-o" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star-o" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star-o" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star-o" style="color:gold; font-size:20px"></i>
+                                                    
+                                                    {% elif data2.user_reviews == '1.5' %}
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star-half-o" style="color:gold;font-size:20px"></i>
+                                                    <i class="fa fa-star-o" style="color:gold;font-size:20px"></i>
+                                                    <i class="fa fa-star-o" style="color:gold;font-size:20px"></i>
+                                                    <i class="fa fa-star-o" style="color:gold;font-size:20px"></i>
+                                                    
+                                                    {% elif data2.user_reviews == '2.0' %}
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star-o" style="color:gold;font-size:20px"></i>
+                                                    <i class="fa fa-star-o" style="color:gold;font-size:20px"></i>
+                                                    <i class="fa fa-star-o" style="color:gold;font-size:20px"></i>
+                                                    {% elif data2.user_reviews == '2.5' %}
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px" {{data2.user_reviews}}></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star-half-o" style="color:gold;font-size:20px"></i>
+                                                    <i class="fa fa-star-o" style="color:gold;font-size:20px"></i>
+                                                    <i class="fa fa-star-o" style="color:gold;font-size:20px"></i>
+                                                    {% elif data2.user_reviews == '3'  %}
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star-o" style="color:gold;font-size:20px"></i>
+                                                    <i class="fa fa-star-o" style="color:gold;font-size:20px"></i>
+                                                    {% elif  data2.user_reviews == '3.5'%}
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star-half-o" style="color:gold;font-size:20px"></i>
+                                                    <i class="fa fa-star-o" style="color:gold;font-size:20px"></i>
+                                                   
+                                                    {% elif data2.user_reviews <= '3.9' %}
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star-half-o" style="color:gold;font-size:20px"></i>
+                                                    <i class="fa fa-star-o" style="color:gold;font-size:20px"></i>
+
+                                                    {% elif data2.user_reviews == '4' %}
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star-o" style="color:gold;font-size:20px"></i>
+
+                                                    {% elif data2.user_reviews == '4.5' %}
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star-half-o" style="color:gold;font-size:20px"></i>
+                                                    {% elif data2.user_reviews <= '4.9'  %}
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star-half-o" style="color:gold;font-size:20px"></i>
+                                                   
+                                                    {% elif data2.user_reviews == '5.0' %}
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px" ></i>
+                                                   
+                                                     {% endif %}
+                                                    
+                                                </td>
+                                                <tr>
+                                                    <td class="hosting__feature--item">System Os</td>
+                                                   
+                                                    <td class="hosting__feature--info">{{data2.cloud_service_model}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="hosting__feature--item"> Peformance</td>
+                                                    
+                                                    <td class="hosting__feature--info">{{data2.cloud_performance}}</td>
+                                                </tr>
+                                              
+                                                <tr>
+                                                    <td class="hosting__feature--item"> Privacy & security</td>
+                                                    
+                                                    <td class="hosting__feature--info">{{data2.cloud_security_and_privacy}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="hosting__feature--item">To Purchase</td>
+                                                    
+                                                    <td><a href="payment_gateway/{{data2.cloud_id}}" class="primary-btn" id="button-a">Buy now</a></td>
+                                                </tr>
+                                            </tr>
+                                           
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        
+                            <div class="tab-pane" id="tabs-3" role="tabpanel">
+                                <div class="hosting__feature__table">
+                                    
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>
+                                                    <div class="hosting__feature__plan--choose">
+                                                        <span>CSMIC Recommand Features</span>
+                                                        <div class="chose__title">CHOOSE PERFECT PLAN</div>
+                                                    </div>
+                                                </th>
+                                                {% for j in data3 %}
+                                                <th>
+                                                <div class="hosting__feature--plan">
+                                                    <div class="plan__title">{{j.cloud_name}}</div>
+                                                    <div class="hosting__feature--price">
+                                                        <div class="plan__price"></div>
+                                                      
+                                                    </div>
+                                                    <a href="payment_gateway/{{j.cloud_id}}" id="button-a" class="primary-btn">Buy now</a>
+                                                </div>
+                                               </th>
+                                               {% endfor %}
+                                               
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="hosting__feature--item">Basic</td>
+                                                {% for j in data3 %}
+                                                <td ><span class="hosting__feature--info" >{{j.cloud_Basic_price}}$</span>
+                                                    
+                                                </td>
+                                                {% endfor %}
+                                            </tr>
+                                            <tr>
+                                                <td class="hosting__feature--item">Storage<p>(Monthly)</p></td>
+                                                {% for j in data3 %}
+                                                <td class="hosting__feature--info">{{j.cloud_Basic_monthly_usage_data}}GB</td>
+                                                {% endfor %}
+                                            </tr>
+                                            <tr>
+                                                <td class="hosting__feature--item">Business</td>
+                                                {% for j in data3 %}
+                                                <td ><span class="hosting__feature--info" >{{j.cloud_Business_price}}$</span>
+                                                </td>
+                                                {% endfor %}
+                                                
+                                            </tr>
+                                            <tr>
+                                                <td class="hosting__feature--item"> Business Storage <p>(Monthly)</p></td>
+                                                
+                                                {% for j in data3 %}
+                                                <td class="hosting__feature--info">{{j.cloud_Business_monthly_usage_data}}GB</td>
+                                                {% endfor %}
+                                            </tr>
+                                            <tr>
+                                                <td class="hosting__feature--item">Premium</td>
+                                                {% for j in data3 %}
+                                                <td ><span class="hosting__feature--info" >{{j.cloud_Premium_price}}$</span>
+                                                </td>
+                                                {% endfor %}
+                                            </tr>
+                                          
+                                            <tr>
+                                                <td class="hosting__feature--item"> Premium Storage <p>(Monthly)</p></td>
+                                                {% for j in data3 %}
+                                                <td class="hosting__feature--info">{{j.cloud_Premium_monthly_usage_data}}GB</td>
+                                                {% endfor %}
+                                            </tr>
+                                            <tr>
+                                                <td class="hosting__feature--item"> Agility</td>
+                                                {% for j in data3 %}
+                                                <td class="hosting__feature--info">{{j.cloud_agility}}</td>
+                                                {% endfor %}
+                                            </tr>
+                                            <tr>
+                                                <td class="hosting__feature--item">User Reviews</td>
+                                                {% for j in data3 %}
+                                                <td class="hosting__feature--info">
+                                                    {% if j.user_reviews == '0' %}
+                                                    <i class="fa fa-star-o" style="color:gold; font-size:20px"{></i>
+                                                    <i class="fa fa-star-o" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star-o" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star-o" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star-o" style="color:gold; font-size:20px"></i>
+                                                    {% elif j.user_reviews == '1' %}
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star-o" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star-o" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star-o" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star-o" style="color:gold; font-size:20px"></i>
+                                                    
+                                                    {% elif j.user_reviews == '1.5' %}
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star-half-o" style="color:gold;font-size:20px"></i>
+                                                    <i class="fa fa-star-o" style="color:gold;font-size:20px"></i>
+                                                    <i class="fa fa-star-o" style="color:gold;font-size:20px"></i>
+                                                    <i class="fa fa-star-o" style="color:gold;font-size:20px"></i>
+                                                    
+                                                    {% elif j.user_reviews == '2.0' %}
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star-o" style="color:gold;font-size:20px"></i>
+                                                    <i class="fa fa-star-o" style="color:gold;font-size:20px"></i>
+                                                    <i class="fa fa-star-o" style="color:gold;font-size:20px"></i>
+                                                    {% elif j.user_reviews == '2.5' %}
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px" {{j.user_reviews}}></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star-half-o" style="color:gold;font-size:20px"></i>
+                                                    <i class="fa fa-star-o" style="color:gold;font-size:20px"></i>
+                                                    <i class="fa fa-star-o" style="color:gold;font-size:20px"></i>
+                                                    {% elif j.user_reviews == '3'  %}
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star-o" style="color:gold;font-size:20px"></i>
+                                                    <i class="fa fa-star-o" style="color:gold;font-size:20px"></i>
+                                                    {% elif  j.user_reviews == '3.5'%}
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star-half-o" style="color:gold;font-size:20px"></i>
+                                                    <i class="fa fa-star-o" style="color:gold;font-size:20px"></i>
+                                                   
+                                                    {% elif j.user_reviews <= '3.9' %}
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star-half-o" style="color:gold;font-size:20px"></i>
+                                                    <i class="fa fa-star-o" style="color:gold;font-size:20px"></i>
+
+                                                    {% elif j.user_reviews == '4' %}
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star-o" style="color:gold;font-size:20px"></i>
+
+                                                    {% elif j.user_reviews == '4.5' %}
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star-half-o" style="color:gold;font-size:20px"></i>
+                                                    {% elif j.user_reviews <= '4.9'  %}
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star-half-o" style="color:gold;font-size:20px"></i>
+                                                   
+                                                    {% elif j.user_reviews == '5.0' %}
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px" ></i>
+                                                   
+                                                     {% endif %}
+                                                    
+                                                </td>
+                                                {% endfor %}
+                                                <tr>
+                                                    <td class="hosting__feature--item">System Os</td>
+                                                    {% for j in data3 %}
+                                                    <td class="hosting__feature--info">{{j.cloud_service_os}}</td>
+                                                    {% endfor %}
+                                                </tr>
+                                                <tr>
+                                                    <td class="hosting__feature--item"> Peformance</td>
+                                                    {% for j in data3 %}
+                                                    <td class="hosting__feature--info">{{j.cloud_performance}}</td>
+                                                    {% endfor %}
+                                                </tr>
+                                               
+                                                <tr>
+                                                    <td class="hosting__feature--item"> Privacy & security</td>
+                                                    {% for j in data3 %}
+                                                    <td class="hosting__feature--info">{{j.cloud_security_and_privacy}}</td>
+                                                    {% endfor %}
+                                                </tr>
+                                                <tr>
+                                                    <td class="hosting__feature--item">To Purchase</td>
+                                                    {% for j in data3 %}
+                                                    <td><a href="payment_gateway/{{j.cloud_id}}" id="button-a" class="primary-btn">Buy now</a></td>
+                                                    {% endfor %}
+                                                </tr>
+                                                
+                                            </tr>
+                                           
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="tabs-4" role="tabpanel">
+                                <div class="hosting__feature__table">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>
+                                                    <div class="hosting__feature__plan--choose">
+                                                        <span>BOIM Features</span>
+                                                        <div class="chose__title">CHOOSE PERFECT PLAN</div>
+                                                    </div>
+                                                </th>
+                                                {% for data5 in data5%}
+                                                <th>
+                                                <div class="hosting__feature--plan">
+                                                    <div class="plan__title">{{data5.cloud_name}}</div>
+                                                   
+                                                    <div class="hosting__feature--price">
+                                                        <div class="plan__price"></div>
+                                                        
+                                                        <a href="payment_gateway/{{data5.cloud_id}}" class="primary-btn" id="button-a">Buy now</a>
+                                                    </div>
+                                                    
+                                                </div>
+                                            </th>
+                                            {% endfor %}
+                                               
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="hosting__feature--item">Basic</td>
+                                                {% for data5 in data5%}
+                                                <td ><span class="hosting__feature--info" >{{data5.cloud_Basic_price}}$</span>
+                                                    {% endfor %}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="hosting__feature--item">Storage<p>(Monthly)</p></td>
+                                                {% for data5 in data5%}
+                                                <td class="hosting__feature--info">{{data5.cloud_Basic_monthly_usage_data}}GB</td>
+                                                {% endfor %}
+                                            </tr>
+                                            <tr>
+                                                <td class="hosting__feature--item">Business</td>
+                                                {% for data5 in data5%}
+                                                <td ><span class="hosting__feature--info" >{{data5.cloud_Business_price}}$</span>
+                                                    {% endfor %}
+                                                </td>
+                                               
+                                                
+                                            </tr>
+                                            <tr>
+                                                <td class="hosting__feature--item"> Business Storage <p>(Monthly)</p></td>
+                                                {% for data5 in data5%}
+                                                <td class="hosting__feature--info">{{data5.cloud_Business_monthly_usage_data}}GB</td>
+                                                {% endfor %}
+                                            </tr>
+                                            <tr>
+                                                <td class="hosting__feature--item">Premium</td>
+                                                {% for data5 in data5%}
+                                                <td ><span class="hosting__feature--info" >{{data5.cloud_Premium_price}}$</span>
+                                                    {% endfor %}
+                                                </td>
+                                            </tr>
+                                          
+                                            <tr>
+                                                <td class="hosting__feature--item"> Premium Storage <p>(Monthly)</p></td>
+                                                {% for data5 in data5%}
+                                                <td class="hosting__feature--info">{{data5.cloud_Premium_monthly_usage_data}}GB</td>
+                                                {% endfor %}
+                                            </tr>
+                                            <tr>
+                                                <td class="hosting__feature--item"> Agility</td>
+                                                {% for data5 in data5%}
+                                                <td class="hosting__feature--info">{{data5.cloud_agility}}{{data5.user_reviews}}</td>
+                                                {% endfor %}
+                                            </tr>
+                                            <tr>
+                                                <td class="hosting__feature--item">User Reviews</td>
+                                                {% for data5 in data5%}
+                                                <td class="hosting__feature--info">
+                                                    {% if data5.user_reviews == '0' %}
+                                                    <i class="fa fa-star-o" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star-o" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star-o" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star-o" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star-o" style="color:gold; font-size:20px"></i>
+                                                    {% elif data5.user_reviews == '1'  %}
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star-o" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star-o" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star-o" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star-o" style="color:gold; font-size:20px"></i>
+                                                    
+                                                    {% elif data5.user_reviews == '1.5' %}
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star-half-o" style="color:gold;font-size:20px"></i>
+                                                    <i class="fa fa-star-o" style="color:gold;font-size:20px"></i>
+                                                    <i class="fa fa-star-o" style="color:gold;font-size:20px"></i>
+                                                    <i class="fa fa-star-o" style="color:gold;font-size:20px"></i>
+                                                    
+                                                    {% elif data5.user_reviews == '2.0' %}
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star-o" style="color:gold;font-size:20px"></i>
+                                                    <i class="fa fa-star-o" style="color:gold;font-size:20px"></i>
+                                                    <i class="fa fa-star-o" style="color:gold;font-size:20px"></i>
+                                                    {% elif data5.user_reviews == '2.5' %}
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px" ></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star-half-o" style="color:gold;font-size:20px"></i>
+                                                    <i class="fa fa-star-o" style="color:gold;font-size:20px"></i>
+                                                    <i class="fa fa-star-o" style="color:gold;font-size:20px"></i>
+                                                    {% elif data5.user_reviews == '3'  %}
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star-o" style="color:gold;font-size:20px"></i>
+                                                    <i class="fa fa-star-o" style="color:gold;font-size:20px"></i>
+                                                    {% elif  data5.user_reviews == '3.5'%}
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star-half-o" style="color:gold;font-size:20px"></i>
+                                                    <i class="fa fa-star-o" style="color:gold;font-size:20px"></i>
+                                                   
+                                                    {% elif data5.user_reviews <= '3.9' %}
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star-half-o" style="color:gold;font-size:20px"></i>
+                                                    <i class="fa fa-star-o" style="color:gold;font-size:20px"></i>
+
+                                                    {% elif data5.user_reviews == '4' %}
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star-o" style="color:gold;font-size:20px"></i>
+
+                                                    {% elif data5.user_reviews == '4.5' %}
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star-half-o" style="color:gold;font-size:20px"></i>
+                                                    {% elif data5.user_reviews <= '4.9'  %}
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star-half-o" style="color:gold;font-size:20px"></i>
+                                                   
+                                                    {% elif data5.user_reviews == '5.0' %}
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px"></i>
+                                                    <i class="fa fa-star" style="color:gold; font-size:20px" ></i>
+                                                   
+                                                     {% endif %}
+                                                     <h6>({{data5.user_review_counts}})</h6>
+                                                </td>
+                                                {% endfor %}
+                                                <tr>
+                                                    <td class="hosting__feature--item">Service Model</td>
+                                                    
+                                                    {% for data5 in data5%}
+                                                    <td class="hosting__feature--info">{{data5.cloud_service_model}}</td>
+                                                    {% endfor %}
+                                                </tr>
+                                                <tr>
+                                                    <td class="hosting__feature--item"> Peformance</td>
+                                                    {% for data5 in data5%}
+                                                    <td class="hosting__feature--info">{{data5.cloud_performance}}</td>
+                                                    {% endfor %}
+                                                </tr>
+                                              
+                                                <tr>
+                                                    <td class="hosting__feature--item"> Privacy & security</td>
+                                                    {% for data5 in data5%}
+                                                    <td class="hosting__feature--info">{{data5.cloud_security_and_privacy}}</td>
+                                                    {% endfor %}
+                                                </tr>
+
+                                                <tr>
+                                                    <td class="hosting__feature--item">To Purchase</td>
+                                                    {% for data5 in data5%}
+                                                    <td><a href="payment_gateway/{{data5.cloud_id}}" id="button-a" class="primary-btn">Buy now</a></td>
+                                                    {% endfor %}
+                                                </tr>
+                                            </tr>
+                                           
+                                        </tbody>
+                                    </table> 
+                                </div>
+                            </div>
+                            <!-- <div class="tab-pane" id="tabs-5" role="tabpanel">
+                                <div class="hosting__feature__table">
+                                    
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>
+                                                    <div class="hosting__feature__plan--choose">
+                                                        <span>All Reseller Hosting Features</span>
+                                                        <div class="chose__title">CHOOSE PERFECT PLAN</div>
+                                                    </div>
+                                                </th>
+                                                <th>
+                                                    <div class="hosting__feature--plan">
+                                                        <div class="plan__title">Started</div>
+                                                        <div class="hosting__feature--price">
+                                                            <div class="plan__price">$3.90</div>
+                                                            <span>month</span>
+                                                        </div>
+                                                        <a href="#" class="primary-btn">Buy now</a>
+                                                    </div>
+                                                </th>
+                                                <th>
+                                                    <div class="hosting__feature--plan">
+                                                        <div class="plan__title">Business</div>
+                                                        <div class="hosting__feature--price">
+                                                            <div class="plan__price">$5.90</div>
+                                                            <span>month</span>
+                                                        </div>
+                                                        <a href="#" class="primary-btn">Buy now</a>
+                                                    </div>
+                                                </th>
+                                                <th>
+                                                    <div class="hosting__feature--plan">
+                                                        <div class="plan__title">Premium</div>
+                                                        <div class="hosting__feature--price">
+                                                            <div class="plan__price">$8.90</div>
+                                                            <span>month</span>
+                                                        </div>
+                                                        <a href="#" class="primary-btn">Buy now</a>
+                                                    </div>
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="hosting__feature--item">Number of Websites</td>
+                                                <td class="hosting__feature--info">1 Website</td>
+                                                <td class="hosting__feature--info">Multiple Websites
+                                                </td>
+                                                <td class="hosting__feature--info">Multiple Websites
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="hosting__feature--item">Free Domain Registration</td>
+                                                <td class="hosting__feature--check"><span
+                                                        class="fa fa-check-circle-o"></span></td>
+                                                <td class="hosting__feature--check"><span
+                                                        class="fa fa-check-circle-o"></span></td>
+                                                <td class="hosting__feature--check"><span
+                                                        class="fa fa-check-circle-o"></span></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="hosting__feature--item">Web Space</td>
+                                                <td class="hosting__feature--info">5,000MB</td>
+                                                <td class="hosting__feature--info">Unlimited</td>
+                                                <td class="hosting__feature--info">Unlimited</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="hosting__feature--item">Email Accounts</td>
+                                                <td class="hosting__feature--info">25</td>
+                                                <td class="hosting__feature--info">Unlimited</td>
+                                                <td class="hosting__feature--info">Unlimited</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="hosting__feature--item">MySQL Databases</td>
+                                                <td class="hosting__feature--check"><span
+                                                        class="fa fa-check-circle-o"></span></td>
+                                                <td class="hosting__feature--check"><span
+                                                        class="fa fa-check-circle-o"></span></td>
+                                                <td class="hosting__feature--check"><span
+                                                        class="fa fa-check-circle-o"></span></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="hosting__feature--item">Free App Store</td>
+                                                <td class="hosting__feature--check"><span
+                                                        class="fa fa-check-circle-o"></span></td>
+                                                <td class="hosting__feature--check"><span
+                                                        class="fa fa-check-circle-o"></span></td>
+                                                <td class="hosting__feature--check"><span
+                                                        class="fa fa-check-circle-o"></span></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="hosting__feature--item">cPanel Control Panel</td>
+                                                <td class="hosting__feature--close"><span
+                                                        class="fa fa-times-circle-o"></span></td>
+                                                <td class="hosting__feature--check"><span
+                                                        class="fa fa-check-circle-o"></span></td>
+                                                <td class="hosting__feature--check"><span
+                                                        class="fa fa-check-circle-o"></span></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="hosting__feature--item">Free Daily Backups</td>
+                                                <td class="hosting__feature--close"><span
+                                                        class="fa fa-times-circle-o"></span></td>
+                                                <td class="hosting__feature--check"><span
+                                                        class="fa fa-check-circle-o"></span></td>
+                                                <td class="hosting__feature--check"><span
+                                                        class="fa fa-check-circle-o"></span></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="hosting__feature--item">Search Engine Optimization</td>
+                                                <td class="hosting__feature--check"><span
+                                                        class="fa fa-check-circle-o"></span></td>
+                                                <td class="hosting__feature--check"><span
+                                                        class="fa fa-check-circle-o"></span></td>
+                                                <td class="hosting__feature--check"><span
+                                                        class="fa fa-check-circle-o"></span></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="hosting__feature--item">99.9% Uptime Guarantee</td>
+                                                <td class="hosting__feature--check"><span
+                                                        class="fa fa-check-circle-o"></span></td>
+                                                <td class="hosting__feature--check"><span
+                                                        class="fa fa-check-circle-o"></span></td>
+                                                <td class="hosting__feature--check"><span
+                                                        class="fa fa-check-circle-o"></span></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="hosting__feature--item">Bandwidth</td>
+                                                <td class="hosting__feature--info">20GB</td>
+                                                <td class="hosting__feature--check"><span
+                                                        class="fa fa-check-circle-o"></span></td>
+                                                <td class="hosting__feature--check"><span
+                                                        class="fa fa-check-circle-o"></span></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="hosting__feature--item">Free Setup</td>
+                                                <td class="hosting__feature--info">$ 1.99</td>
+                                                <td class="hosting__feature--check"><span
+                                                        class="fa fa-check-circle-o"></span></td>
+                                                <td class="hosting__feature--check"><span
+                                                        class="fa fa-check-circle-o"></span></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="hosting__feature--item">Advanced Security Features</td>
+                                                <td class="hosting__feature--info">Extra</td>
+                                                <td class="hosting__feature--info">Extra</td>
+                                                <td class="hosting__feature--info">Extra</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="hosting__feature--item">Cloud Hosting</td>
+                                                <td class="hosting__feature--check"><span
+                                                        class="fa fa-check-circle-o"></span></td>
+                                                <td class="hosting__feature--check"><span
+                                                        class="fa fa-check-circle-o"></span></td>
+                                                <td class="hosting__feature--check"><span
+                                                        class="fa fa-check-circle-o"></span></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="hosting__feature--item">Cloud Hosting</td>
+                                                <td class="hosting__feature--close"><span
+                                                        class="fa fa-times-circle-o"></span></td>
+                                                <td class="hosting__feature--info">$ 250.0</td>
+                                                <td class="hosting__feature--info">$ 250.0</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="hosting__feature--item">24/7/365 Support</td>
+                                                <td class="hosting__feature--check"><span
+                                                        class="fa fa-check-circle-o"></span></td>
+                                                <td class="hosting__feature--check"><span
+                                                        class="fa fa-check-circle-o"></span></td>
+                                                <td class="hosting__feature--check"><span
+                                                        class="fa fa-check-circle-o"></span></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="hosting__feature--item">Website Builder</td>
+                                                <td class="hosting__feature--info">1</td>
+                                                <td class="hosting__feature--info">50</td>
+                                                <td class="hosting__feature--info">Unlimited</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="hosting__feature--item">30 Day Money Back Guarantee</td>
+                                                <td class="hosting__feature--check"><span
+                                                        class="fa fa-check-circle-o"></span></td>
+                                                <td class="hosting__feature--check"><span
+                                                        class="fa fa-check-circle-o"></span></td>
+                                                <td class="hosting__feature--check"><span
+                                                        class="fa fa-check-circle-o"></span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</form>
+    <!-- Contact Section End -->
+
+    <!-- Contact Form Begin -->
+    
+    <!-- Contact Form End -->
+
+    <!-- Footer Section Begin -->
+    <footer class="footer-section mt-5">
+        <div class="footer__top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="footer__top-call">
+                            <h5>Need Help? Call us</h5>
+                            <h2>+91 8555 8879 86</h2>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer__text set-bg" data-setbg="{% static 'user/img/footer-bg.png' %}">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="footer__text-about">
+                            <div class="footer__logo">
+                                <a href="./index.html"><i class="fa fa-database fa-2x" style="color:blue ;"><span style="color: white">&nbsp;MCDM</span></i></a>
+                            </div>
+                            <p>mcdm is the on-demand availability of computer system resources, especially data storage (cloud storage) and computing power, without direct active management by the user </p>
+                            <div class="footer__social">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-youtube-play"></i></a>
+                                <a href="#"><i class="fa fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-6 col-sm-6">
+                        <div class="footer__text-widget">
+                            <h5>Company</h5>
+                            <ul>
+                                <li><a href="#">Home</a></li>
+                                <li><a href="#">About Us</a></li>
+                                <li><a href="#">Plans</a></li>
+                                <li><a href="#">Signup</a></li>
+                                <li><a href="#">Login</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="footer__text-widget">
+                            <h5>cONTACT US</h5>
+                            <ul class="footer__widget-info">
+                                <li><span class="fa fa-map-marker"></span>Metro Pillar No A1662, Siris Road
+                                    Snehapuri<br/>
+                                    L.B Nagar,Hyd-74</li>
+                                <li><span class="fa fa-mobile"></span> +91 8555 8879 86 </li>
+                                <li><span class="fa fa-headphones"></span> Support.info@codebook.in</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer__text-copyright">
+                    <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://codebook.in" target="_blank">CODEBOOK</a>
+  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Section End -->
+
+    <!-- Js Plugins -->
+    <script src="{% static 'user/js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'user/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'user/js/jquery.slicknav.js' %}"></script>
+    <script src="{% static 'user/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'user/js/main.js' %}"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    {% if messages %}              
+    {% for message in messages %}
+    {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+        <script>swal({
+        title: "Success!",
+        text: "{{message}}",
+        icon: "success",
+        button: "OK",
+        });
+        </script>
+        
+        {% elif message.level == DEFAULT_MESSAGE_LEVELS.WARNING %}
+            <script>swal({
+            title: "Warning :)",
+            text: "{{message}}",
+            icon: "warning",
+            button: "OK",
+            });
+        </script>
+        {% elif message.level == DEFAULT_MESSAGE_LEVELS.INFO %}
+        <script>swal({
+        title: "error :)",
+        text: "{{message}}",
+        icon: "error",
+        button: "OK",
+        });
+    </script>
+    
+        {% endif %}              
+    {% endfor %} 
+    {% endif %}
+</body>
+
+</html>

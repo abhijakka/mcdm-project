@@ -1,0 +1,271 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Deerhost Template">
+    <meta name="keywords" content="Deerhost, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MCDM</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800,900&display=swap"
+        rel="stylesheet">
+
+    <!-- Css Styles -->
+        <link rel="stylesheet" href="{% static 'user/css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'user/css/font-awesome.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'user/css/elegant-icons.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'user/css/flaticon.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'user/css/owl.carousel.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'user/css/slicknav.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'user/css/style.css' %}" type="text/css">
+</head>
+
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Offcanvas Menu Begin -->
+    <div class="offcanvas__menu__overlay"></div>
+    <div class="offcanvas__menu__wrapper">
+        <div class="canvas__close">
+            <span class="fa fa-times-circle-o"></span>
+        </div>
+        <div class="offcanvas__logo">
+            <!-- <a href="#"><img src="img/logo.png' %}" alt=""></a> -->
+        </div>
+        <nav class="offcanvas__menu mobile-menu">
+            <ul>
+                <li ><a href="{% url 'user_dashboard' %}">Home</a></li>
+                <li><a href="{% url 'user_profile' %}">My Profile</a></li>
+                <li class="active"><a href="{% url 'user_plans' %}">Plans</a></li>
+                <li><a href="{% url 'user_activated_plans' %}">PurchasedPlans</a></li>
+                
+                <li><a href="{% url 'user_downloads' %}">Downloads</a></li>
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+            </ul>
+        </nav>
+        <div id="mobile-menu-wrap"></div>
+        <div class="offcanvas__auth">
+          
+        </div>
+        <div class="offcanvas__info">
+            <ul>
+                <li><span class="icon_phone"></span>+91 8555 8879 86</li>
+                <li><span class="fa fa-envelope"></span>info@codebook.com</li>
+            </ul>
+        </div>
+    </div>
+    <!-- Offcanvas Menu End -->
+
+    <!-- Header Section Begin -->
+    <header class="header-section header-normal">
+        <div class="header__info">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="header__info-left">
+                            <ul>
+                                <li><span class="icon_phone"></span>+91 8555 8879 86</li>
+                                <li><span class="fa fa-envelope"></span> info@codebook.com</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="header__info-right">
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-3">
+                    <div class="header__logo">
+                        <a href="{% url 'user_dashboard' %}"><i class="fa fa-database fa-2x" style="color:blue ;"><span style="color: white">&nbsp;MCDM</span></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-9 col-md-9">
+                    <nav class="header__menu">
+                        <ul>
+                            <li ><a href="{% url 'user_dashboard' %}">Home</a></li>
+                            <li><a href="{% url 'user_profile' %}">My Profile</a></li>
+                            <li class="active"><a href="{% url 'user_plans' %}">Plans</a></li>
+                            <li><a href="{% url 'user_activated_plans' %}">PurchasedPlans</a></li>
+                            
+                            <li><a href="{% url 'user_downloads' %}">Downloads</a></li>
+                            <li><a href="{% url 'logout' %}">Logout</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <div class="canvas__open">
+                <span class="fa fa-bars"></span>
+            </div>
+        </div>
+    </header>
+    <!-- Header End -->
+
+    <!-- Breadcrumb Begin -->
+    <div class="breadcrumb-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb__option">
+                        <a href="{% url 'user_dashboard' %}"><span class="fa fa-home"></span> Home</a>
+                        <span>User Plans</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Breadcrumb End -->
+
+    <!-- Contact Section Begin -->
+    <section class="contact-section spad pt-4">
+        <div class="container">
+            
+            <div class="row">
+                {% for i in data %}
+              
+                <div class="col-md-4">
+                    <div class="cause shadow-sm">
+                    
+                      <a href="#" class="cause-link d-block">
+                       <img src="/media/{{i.cloud_upload_image}}" style="height:220px;width:360px" alt="Image" class="img-fluid">
+                        <div class="custom-progress-wrap">
+                         
+                          <div class="custom-progress-inner">
+                            <div class="custom-progress bg-danger" style="width: 80%;"></div>
+                          </div>
+                        </div>
+                      </a>
+      
+                      <div class="px-3 pt-3 border-top-0 border border shadow-sm">
+                        <span class="badge-danger py-1 small px-2 rounded mb-3 d-inline-block"  value="{{i.cloud_name}}">{{i.cloud_name}}<span style="font-size:10px">CLOUD</span></span>
+                        <h4 class="mb-4" style="height:80px;"><a style="font-family:sans-serif; ">{{i.cloud_describtion}}  </a></h4>
+                        <div class="border-top border-light border-bottom py-2 d-flex">
+                            <div style="font-weight:bold;">Start's Price</div>
+                            <div class="ml-auto"><strong class="text-primary">{{i.cloud_Basic_price}}$</strong></div>
+                        </div>
+                        <br>
+                        <div>
+                            
+                       
+                            <a href="{% url 'cloud_plans' %}" type="button" class="btn btn-primary btn-lg btn-block">Get More Details</a>
+                           
+                            
+                         
+ 
+                        </div>
+                        <br> 
+                     
+                      </div>
+                    
+                    </div>
+                    
+                </div>
+         
+                
+                {% endfor %}
+      
+      
+              </div>
+                
+           
+        </div>
+    </section>
+    <!-- Contact Section End -->
+
+    <!-- Contact Form Begin -->
+    
+    <!-- Contact Form End -->
+
+    <!-- Footer Section Begin -->
+    <footer class="footer-section mt-5">
+        <div class="footer__top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="footer__top-call">
+                            <h5>Need Help? Call us</h5>
+                            <h2>+91 8555 8879 86</h2>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer__text set-bg" data-setbg="{% static 'user/img/footer-bg.png' %}">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="footer__text-about">
+                            <div class="footer__logo">
+                                <a href="{% url 'user_dashboard' %}"><i class="fa fa-database fa-2x" style="color:blue ;"><span style="color: white">&nbsp;MCDM</span></i></a>
+                            </div>
+                            <p>mcdm is the on-demand availability of computer system resources, especially data storage (cloud storage) and computing power, without direct active management by the user </p>
+                            <div class="footer__social">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-youtube-play"></i></a>
+                                <a href="#"><i class="fa fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-6 col-sm-6">
+                        <div class="footer__text-widget">
+                            <h5>Company</h5>
+                            <ul>
+                                <li ><a href="{% url 'user_dashboard' %}">Home</a></li>
+                                <li><a href="{% url 'user_profile' %}">My Profile</a></li>
+                                <li ><a href="{% url 'user_plans' %}">Plans</a></li>
+                                <li><a href="{% url 'user_activated_plans' %}">PurchasedPlans</a></li>
+                                
+                                <li><a href="{% url 'user_downloads' %}">Downloads</a></li>
+                                <li><a href="{% url 'logout' %}">Logout</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="footer__text-widget">
+                            <h5>cONTACT US</h5>
+                            <ul class="footer__widget-info">
+                                <li><span class="fa fa-map-marker"></span>Metro Pillar No A1662, Siris Road
+                                    Snehapuri<br/>
+                                    L.B Nagar,Hyd-74</li>
+                                <li><span class="fa fa-mobile"></span> +91 8555 8879 86 </li>
+                                <li><span class="fa fa-headphones"></span> Support.info@codebook.in</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer__text-copyright">
+                    <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://codebook.in" target="_blank">CODEBOOK</a>
+  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Section End -->
+
+    <!-- Js Plugins -->
+    <script src="{% static 'user/js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'user/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'user/js/jquery.slicknav.js' %}"></script>
+    <script src="{% static 'user/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'user/js/main.js' %}"></script>
+</body>
+
+</html>
